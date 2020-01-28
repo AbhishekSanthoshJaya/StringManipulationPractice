@@ -79,15 +79,22 @@ public class StringManipulationExample {
         char[] evens = s.toCharArray();
       //  char[] odds = s.toCharArray();
 
-        for (int i = 0,j=i+2; i < s.length()-1; i++,j++)
+        for (int i = 0; i < s.length()-1; i+=2)
         {
-            if(j < s.length()) {
+            if(i+2 < s.length()) {
                 char t = evens[i];
-                evens[i] = evens[j];
-                evens[j] = t;
+                evens[i] = evens[i+2];
+                evens[i+2] = t;
             }
-
         }
+
+        /*for(int j =1; j<s.length()-1;j+=2){
+            if(j+2 < s.length()) {
+                char t = evens[j];
+                evens[j] = evens[j+2];
+                evens[j+2] = t;
+            }
+        }*/
         String temp = new String(evens);
         return temp;
     }
