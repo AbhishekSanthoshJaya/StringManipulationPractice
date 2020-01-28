@@ -1,12 +1,12 @@
 public class StringManipulationExample {
     public static void main(String[] args) {
         StringManipulationExample s1 = new StringManipulationExample();
-        String[] mainString = new String[]{"Canada", "India", "Abhishek", "Toronto"};
+        String[] mainString = new String[]{"Canada", "India", "Abhishek", "Toronto","North York"};
         for (int i = 0; i < mainString.length; i++) {
          // System.out.println(s1.zigZagReverse(mainString[i]));
             //System.out.println(s1.zigZagMyString(mainString[i]));
-            System.out.println(s1.oddEvenSwap(mainString[i]));
-           // System.out.println(s1.reverseString(mainString[i]));
+            //System.out.println(s1.oddEvenSwap(mainString[i]));
+           System.out.println(s1.myReverse(mainString[i]));
         }
     }
 
@@ -79,7 +79,7 @@ public class StringManipulationExample {
         char[] evens = s.toCharArray();
       //  char[] odds = s.toCharArray();
 
-        for (int i = 0; i < s.length()-1; i+=2)
+        for (int i = 0; i < s.length()-1; i+=4)
         {
             if(i+2 < s.length()) {
                 char t = evens[i];
@@ -88,14 +88,32 @@ public class StringManipulationExample {
             }
         }
 
-        /*for(int j =1; j<s.length()-1;j+=2){
+        for(int j =1; j<s.length()-1;j+=4){
             if(j+2 < s.length()) {
                 char t = evens[j];
                 evens[j] = evens[j+2];
                 evens[j+2] = t;
             }
-        }*/
+        }
         String temp = new String(evens);
         return temp;
+    }
+
+    public String myReverse(String s){
+        char[] rev = s.toCharArray();
+        for(int i = 0; i <rev.length-1; i+=2){
+            char t = rev[i];
+            rev[i] = rev[i+1];
+            rev[i+1] = t;
+        }
+        String temp1 = new String(rev);
+        if(rev.length % 2 == 1){
+            String firstPart = temp1.substring(0,rev.length/2);
+            String secondPart = temp1.substring(rev.length/2, rev.length-1);
+            String finalString = firstPart + rev[rev.length-1] + secondPart;
+            String temp2 = new String(finalString);
+            return temp2;
+        }
+        else return temp1;
     }
 }
