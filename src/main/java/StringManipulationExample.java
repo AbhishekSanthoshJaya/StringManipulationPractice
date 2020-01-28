@@ -116,18 +116,22 @@ public class StringManipulationExample {
         } else return temp1;
     }
 
-    public void firstDay(){
+   public void firstDay(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your string pls: ");
         String s = input.nextLine();
         int index = 0;
         char[] text = s.toCharArray();
-        for(int i =1; i<text.length; i++){
-            for(int j=0; j<=i; j++){
-                System.out.print(text[index]);
-                index++;
-                }
+        for(int i =0; i<text.length; i++){
+                for (int j = 0; j <= i; j++) {
+                    System.out.print(text[index]);
+                    index++;
+                    if(index >= s.length()){
+                        return;
+                    }
             }
             System.out.println();
         }
+
     }
+}
